@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+  ** 星座選擇 **
+========================
+              By. CatMao
+-->
+<html>
+    <head>
+    <meta charset="utf-8"><title>Constellation</title>
+    <style>
+        #divImage{
+            position: absolute;
+            left: 1%;
+            top: 1%;
+            height: 68%;
+            width: 98%;
+        }
+        #divText{
+            background-color: skyblue;
+            color: white;
+            position: absolute;
+            left: 1%;
+            top: 69%;
+            height: 20%;
+            width: 98%;
+            box-shadow:0.1em 0.1em 0.4em 0.4em rgba(20%,20%,40%,0.5) inset;
+        }
+        #divSelect{
+            position: absolute;
+            left: 1%;
+            top: 91%;
+            height: 8%;
+            width: 98%;
+        }
+        select{
+            font-family:Microsoft JhengHei;
+            font-size: 1.2em;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid skyblue;
+            background-color: white;
+            background-repeat: no-repeat;
+            background-size: 8px 8px, 8px 8px, 30px 30px, 1px 30px;
+            background-image: repeating-linear-gradient(225deg, rgb(105, 123, 149) 0%, rgb(105, 123, 149) 50%, transparent 50%, transparent 100%),
+            repeating-linear-gradient(135deg, rgb(105, 123, 149) 0%, rgb(105, 123, 149) 50%, transparent 50%, transparent 100%),
+            linear-gradient(#FFFFFF 0%, #F8F9Fd, #EFFAFA 100%),
+            repeating-linear-gradient( rgb(191, 204, 220) 0%, rgb(191, 204, 220) 100%);
+            background-position: 175px 10px, 183px 10px, right top, 167px top;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+        p{
+            font-family:Microsoft JhengHei;
+            font-size: 3.5em;
+            text-shadow: 0.06em 0.06em 0.04em rgba(20%,20%,40%,0.5);
+        }
+        img{
+            margin: 2%;
+            height: 90%;
+        }
+    </style>
+    <script>
+        var B = [21, 20, 21, 21, 22, 22, 24, 24, 24, 24, 23, 23];
+        var Month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var Const = ["水秤", "雙魚", "牡羊", "金牛", "雙子", "巨蟹", "獅子", "處女", "天秤", "天蠍", "射手", "魔羯"];
+        var imgsrc = ["qrw39ix", "12mumSM", "NFLq3Xf", "CXyX6Su", "L6hy5lr", "jwyJVsS", "Kg8WOrZ", "cpp6CGD", "n7SpADm", "Yoayl8Gg", "EMleyzB", "4nLwwE8"];
+        var Days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        
+        window.onload = function(){
+            var sltMonth = document.getElementById("sltMonth");
+            for(var i = 1; i <= 12; i++){ // 動態生成 select 月份選項
+                var NewOption = document.createElement("option");
+                NewOption.text = Month[i-1];
+                NewOption.value = i;
+                NewOption.nodeValue = i;
+                sltMonth.appendChild(NewOption);
+                sltMonth.addEventListener("change", MonthChange);
+            }
+            var sltDay = document.getElementById("sltDay");
+            for(var i = 1; i <= 31; i++){ // 動態生成 select 日期選項
+                sltDay.options.add(new Option(i, i));
+                sltDay.addEventListener("change", DayChange);
+            }
+        }
+        var MonthChange = function(){
+            var sltMonth = document.getElementById("sltMonth");
+            var sltDay = document.getElementById("sltDay");
+            var temp = sltDay.value;
+            sltDay.options.length = 0;
+            for(var i = 1; i <= Days[(sltMonth.value)-1]; i++){
+                sltDay.options.add(new Option(i, i));
+                sltDay.addEventListener("change", DayChange);
+            }
+            var m = sltMonth.value;
+            var d = sltDay.value;
+            // 若前一個日期不小於後面選擇月份的最大日期，則將值改為後面選擇月份的最大日期
+            if( temp > sltDay.options.length ){ 
+                d = sltDay.options.length;
+            }
+            else{ // 將前一個日期放到後面選擇月份的日期
+                d = temp;
+            }
+            sltDay.value = d;
+            
+            var index = (Number(m) + Math.floor(d / B[m - 1]) + 10) % 12;
+            var img = document.getElementById("image");
+            img.src = "http://i.imgur.com/" + imgsrc[index] + ".png";
+            img.onload = function(){
+                var con = document.getElementById("con");
+                con.innerHTML = Const[index] + "座";
+            }
+        }
+        var DayChange = function(){
+            var m = document.getElementById("sltMonth").value;
+            var d = document.getElementById("sltDay").value;
+            
+            var index = (Number(m) + Math.floor(d / B[m - 1]) + 10) % 12;
+            var img = document.getElementById("image");
+            img.src = "http://i.imgur.com/" + imgsrc[index] + ".png";
+            img.onload = function(){
+                var con = document.getElementById("con");
+                con.innerHTML = Const[index] + "座";
+            }
+        }
+    </script>
+    </head>
+    <body>
+        <center>
+        <div id="divImage">
+            <img id="image" src="http://i.imgur.com/4nLwwE8.png">
+        </div>
+        <div id="divText">
+            <p id="con">魔羯座</p>
+        </div>
+        <div  id="divSelect">
+            <select id="sltMonth"></select>　
+            <select id="sltDay"></select>
+        </div>
+        </center>
+    </body>
+</html>
