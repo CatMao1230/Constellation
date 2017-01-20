@@ -1,5 +1,6 @@
 # Constellation
-<h1><img class="alignnone  wp-image-99" src="https://catmaoblog.files.wordpress.com/2016/10/6lqz4de.png" alt="Icon made by Freepik from www.flaticon.com" width="40" height="40" /> <a href="https://catmaoblog.wordpress.com/2016/10/16/constellation/" target="_blank">點我前往</a></h1>
+<h1><img class="alignnone  wp-image-99" src="https://catmaoblog.files.wordpress.com/2016/10/6lqz4de.png" alt="Icon made by Freepik from www.flaticon.com" width="40" height="40" /> <a href="https://catmao1230.github.io/Constellation/" target="_blank">點我前往</a></h1>
+<h1><img class="alignnone  wp-image-99" src="https://catmaoblog.files.wordpress.com/2016/10/6lqz4de.png" alt="Icon made by Freepik from www.flaticon.com" width="40" height="40" /> <a href="https://catmaoblog.wordpress.com/2016/10/16/constellation/" target="_blank">WordPress</a></h1>
 <h1><img class="alignnone  wp-image-41" src="https://catmaoblog.files.wordpress.com/2016/10/3h9rzur.png" alt="Icon made by Popcorns Arts from www.flaticon.com" width="40" height="40" /> 前言</h1>
 大部分輸入月日判斷星座的程式都會想到用一堆 if else 來寫，但在方文聘老師的教導下，第一次看到了超級簡短的星座判斷程式碼，不需要 if else ，有一點難懂但是真的是一個很厲害的作法，最底下的參考資料有附上方老師的部落格，有興趣鑽研程式的人可以看看，但這篇星座的老師似乎沒放在部落格。
 <h1><img class="alignnone  wp-image-43" src="https://catmaoblog.files.wordpress.com/2016/10/ril6i6c.png" alt="Icon made by flaticon from www.flaticon.com" width="40" height="40" /> 程式碼</h1>
